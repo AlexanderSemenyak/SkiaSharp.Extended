@@ -10,14 +10,8 @@ interesting projects:
 
  - [SkiaSharp][skiasharp] _(the engine)_
  - [SkiaSharp.Extended][extended] _(additional APIs)_
- - [SkiaSharp.Extended.UI][ui] _(additional Xamarin.Forms controls)_
-
-**Deprecated / Unmaintained Libraries**
-
- - ~~[SkiaSharp.Extended.Iconify][iconify]~~ _(iconify library)_  
-   Use https://github.com/toptensoftware/RichTextKit instead.
- - ~~[SkiaSharp.Extended.Svg][svg]~~ _(lightweight SVG loader)_  
-   Use https://github.com/wieslawsoltes/Svg.Skia instead.
+ - [SkiaSharp.Extended.UI.Forms][ui-forms] _(additional Xamarin.Forms controls)_
+ - [SkiaSharp.Extended.UI.Maui][ui-maui] _(additional .NET MAUI controls)_
 
 ## Using
 
@@ -30,7 +24,7 @@ https://aka.ms/skiasharp-eap/index.json
 ## Building
 
 To build the projects and samples, just open `SkiaSharp.Extended.sln` 
-in Visual Studio 2019.
+in Visual Studio.
 
 The CI server just runs `dotnet cake` and outputs all the packages,
 assemblies and test results. This can also be used to build everything
@@ -45,6 +39,5 @@ The code in this repository is licensed under the [MIT License][license].
 
 [skiasharp]: https://github.com/mono/SkiaSharp
 [extended]: https://mono.github.io/SkiaSharp.Extended/api/extended
-[ui]: https://mono.github.io/SkiaSharp.Extended/api/ui
-[iconify]: https://mono.github.io/SkiaSharp.Extended/api/iconify
-[svg]: https://mono.github.io/SkiaSharp.Extended/api/svg
+[ui-forms]: https://mono.github.io/SkiaSharp.Extended/api/ui-forms
+[ui-maui]: https://mono.github.io/SkiaSharp.Extended/api/ui-maui
