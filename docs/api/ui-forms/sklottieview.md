@@ -15,7 +15,7 @@ There are several properties that can be used to control th animation playback:
 | **Source**             | `SKLottieImageSource`  | The Lottie [image source](#source) to playback in the view. |
 | **Duration**           | `TimeSpan`             | A value indicating the total duration of the animation. |
 | **Progress**           | `TimeSpan`             | The current playback progress of the animation. |
-| **RepeatCount**        | `int`                  | The number of times to repeat the animation. Default is 0 (no repeat). |
+| **RepeatCount**        | `int`                  | The number of times to repeat the animation. Default is 0 (no repeat). A negative (-1) value will repeat forever. |
 | **RepeatMode**         | `SKLottieRepeatMode`   | The way in which to repeat the animation. Default is `Restart`. |
 | **IsAnimationEnabled** | `bool`                 | Determines whether the control will play the animation provided. |
 | **IsComplete**         | `bool`                 | A value that indicates whether all systems are complete. |
@@ -24,10 +24,11 @@ There are several properties that can be used to control th animation playback:
 
 There are a few events that can be used to be notified of animation loading events:
 
-| Event                | Type            | Description |
-| :------------------- | :-------------- | :---------- |
-| **AnimationLoaded**  | `EventHandler`  | Invoked when the animation has loaded successfully. |
-| **AnimationFailed**  | `EventHandler`  | Invoked when there was an error loading the animation. |
+| Event                   | Type            | Description |
+| :---------------------- | :-------------- | :---------- |
+| **AnimationLoaded**     | `EventHandler`  | Invoked when the animation has loaded successfully. |
+| **AnimationFailed**     | `EventHandler`  | Invoked when there was an error loading the animation. |
+| **AnimationCompleted**  | `EventHandler`  | Invoked when the animation is finished playing (after all the repeats). Infinite animations never complete so will not trigger the event. |
 
 ## Parts
 

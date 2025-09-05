@@ -1,0 +1,69 @@
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    exclude:
+      - README.md
+      - CODE-OF-CONDUCT.md
+      - LICENSE
+      - .github/
+      - docs/
+
+pr:
+  branches:
+    include:
+      - main
+  paths:
+    exclude:
+      - README.md
+      - CODE-OF-CONDUCT.md
+      - LICENSE
+      - .github/
+      - docs/
+      - images/
+
+variables:
+  - template: /scripts/azure-pipelines-variables.yml@self
+
+pool:
+  vmImage: windows-latest
+
+jobs:
+  - job: build
+    displayName: Build
+    steps:
+      - template: /scripts/azure-pipelines-steps-prepare.yml@self
+      - pwsh: dotnet cake --target=build
+        displayName: Build everything
+      - publish: output
+        artifact: build
+        condition: always()
+        displayName: Upload Logs
+
+  - job: pack
+    displayName: Pack
+    steps:
+      - template: /scripts/azure-pipelines-steps-prepare.yml@self
+      - pwsh: dotnet cake --target=pack
+        displayName: Pack NuGet packages
+      - publish: output
+        artifact: pack
+        condition: always()
+        displayName: Upload Logs
+
+  - job: test
+    displayName: Test
+    steps:
+      - template: /scripts/azure-pipelines-steps-prepare.yml@self
+      - pwsh: dotnet cake --target=test
+        displayName: Run tests
+      - task: PublishTestResults@2
+        condition: always()
+        inputs:
+          testResultsFormat: VSTest
+          testResultsFiles: output/test-results/*.trx
+      - publish: output
+        artifact: test
+        condition: always()
+        displayName: Upload Logs

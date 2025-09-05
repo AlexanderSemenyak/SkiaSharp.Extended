@@ -1,9 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net9.0</TargetFrameworks>
     <AssemblyName>SkiaSharp.Extended</AssemblyName>
     <RootNamespace>SkiaSharp.Extended</RootNamespace>
+    <!-- <Nullable>enable</Nullable> -->
   </PropertyGroup>
 
   <PropertyGroup>
@@ -13,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SkiaSharp" Version="2.88.1-preview.79" />
+    <PackageReference Include="SkiaSharp" Version="3.116.1" />
   </ItemGroup>
 
 </Project>
